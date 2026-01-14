@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  gmail-to-sheets:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gmail-to-sheets
+    volumes:
+      # Mount credentials directory (contains credentials.json, token.json, state.json)
+      - ./credentials:/app/credentials
+      # Mount logs directory (optional)
+      - ./logs:/app/logs
+    environment:
+      # Optional: Override config via environment variables
+      - SPREADSHEET_ID=${SPREADSHEET_ID:-}
+      - SHEET_NAME=${SHEET_NAME:-Sheet1}
+      - SUBJECT_FILTER=${SUBJECT_FILTER:-}
+      - MAX_RESULTS=${MAX_RESULTS:-50}
+    restart: unless-stopped
+    # Optional: Add health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
