@@ -27,8 +27,8 @@ SUBJECT_FILTER = os.getenv('SUBJECT_FILTER', None)  # Can be set via environment
 
 # Google Sheets Configuration
 # Can be set via environment variables or hardcoded here
-SPREADSHEET_ID = os.getenv('SPREADSHEET_ID', '1jWQvfyyfgFt7kYhwHhelT78kEE3jGk-fJSuumW-eAqM')
-SHEET_NAME = os.getenv('SHEET_NAME', 'Testing')
+SPREADSHEET_ID = os.getenv('SPREADSHEET_ID', 'spreadsheet's id')
+SHEET_NAME = os.getenv('SHEET_NAME', 'sheet name')
 
 # Email Processing Configuration
-MAX_RESULTS = int(os.getenv('MAX_RESULTS', '15'))  # Maximum number of emails to process per run
+MAX_RESULTS = int(os.getenv('MAX_RESULTS', '50'))  # Maximum number of emails to process per run
