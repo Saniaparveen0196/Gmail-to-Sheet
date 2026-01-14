@@ -3,85 +3,8 @@ Gmail to Google Sheets Automation
 A Python automation script that reads unread emails from Gmail and logs them into a Google Sheet using Google APIs. The project uses OAuth 2.0 authentication, prevents duplicate entries, and maintains state across runs.
 
 1️⃣High-Level Architecture
-┌─────────────────────┐
-│     Gmail API       │
-│  (Unread Emails)    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   Gmail Service     │
-│ - OAuth Auth        │
-│ - Fetch Emails     │
-│ - Mark as Read     │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   Email Parser      │
-│ - Extract headers  │
-│ - Parse body/date  │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   Sheets Service    │
-│ - OAuth Auth        │
-│ - Duplicate Check  │
-│ - Append Rows      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   Google Sheets     │
-│   (Email Log)       │
-└─────────────────────┘
-           ▲
-           │
-┌─────────────────────┐
-│ State Persistence   │
-│   (state.json)      │
-└─────────────────────┘
+<img width="1024" height="1536" alt="ChatGPT Image Jan 14, 2026, 07_07_47 PM" src="https://github.com/user-attachments/assets/7abb20fa-7b24-41ec-bd58-afd98044fb40" />
 
-┌─────────────────────┐
-│ Gmail API │
-│ (Unread Emails) │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ Gmail Service │
-│ - OAuth Auth │
-│ - Fetch Emails │
-│ - Mark as Read │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ Email Parser │
-│ - Extract headers │
-│ - Parse body/date │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ Sheets Service │
-│ - OAuth Auth │
-│ - Duplicate Check │
-│ - Append Rows │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ Google Sheets │
-│ (Email Log) │
-└─────────────────────┘
-▲
-│
-┌─────────────────────┐
-│ State Persistence │
-│ (state.json) │
-└─────────────────────┘
 
 2️⃣ Setup Instructions (Step-by-Step)
 
